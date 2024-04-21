@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CSS-only hamburger menu</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <style type="text/css">
+    /* Based on better website http://bettermotherfuckingwebsite.com/ */
+    body {
+      margin: 0 auto;
+      max-width: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      line-height: 1.6em;
+      font-size: 18px;
+      color: #444;
+      background-color: snow;
+    }
+
+    main {
+      margin: 1em auto;
+      padding: 1em;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.2;
+    }
+    /* Here we start */
+    nav {
+      background-color: #0e1010;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16.3px 29.7px 20.8px 32px;
+      border: solid 1px #272d2b;
+    }
+
+    .logo {
+      color: #fff;
+      font-style: italic;
+      font-size: 32px;
+      text-decoration: none;
+    }
+    .nav-link {
+      font-size: 16px;
+      color: #fff;
+      text-decoration: none;
+      margin-left: 70px;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    .get-in-touch-btn {
+      font-size: 16px;
+      line-height: 0.5;
+      color: #fff;
+      padding: 10px 28px;
+      border-radius: 41px;
+      background-color: #2f3634;
+    }
+
+    nav ul {
+      /* Make the markers disappear */
+      list-style-type: none;
+      margin: 0px;
+    }
+
+    nav ul li {
+      /* Puts the elements in a single line */
+      display: inline-flex;
+    }
+
+    /* These two lines make the checkbox and the label disappear when we are in desktop mode. */
+    nav input[type="checkbox"],
+    nav label {
+      display: none;
+    }
+
+    /* This start to get interesting: we go into mobile phone mode */
+    @media (max-width: 576px) {
+      /* Here is the magic: if the checkbox is not marked, the adjacent list is not displayed */
+      input[type="checkbox"]:not(:checked) + ul {
+        display: none;
+      }
+
+      nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      /* Stlying the menu icon, the checkbox stays hidden */
+      nav label {
+        text-align: right;
+        display: block;
+        padding: 0.5em;
+        line-height: 1.6em;
+        align-self: center;
+      }
+
+      /* Because we are in mobile mode, we want to display it as a vertical list */
+      nav ul {
+        display: block;
+      }
+
+      /* We have two lists: the first one are the always visibile items in the 
+        menu bar. The second one is the one that will be hidden */
+      nav ul:last-child {
+        width: 100%;
+        flex-basis: 100%;
+      }
+
+      nav ul li {
+        margin-bottom: 0;
+        width: 100%;
+        text-align: right;
+        padding: 0.5em;
+      }
+
+      .nav-link {
+        margin-left: 0px;
+      }
+    }
+  </style>
+
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a class="logo" href="https://threkk.com">Swathi M</a>
+        </li>
+      </ul>
+      <label for="menu" tabindex="0"> 🍔 </label>
+      <input id="menu" type="checkbox" />
+      <ul>
+        <li>
+          <a class="nav-link" href="https://mastodon.social/@threkk">ABOUT</a>
+        </li>
+        <li>
+          <a class="nav-link" href="https://twitter.com/threkk">PROJECTS</a>
+        </li>
+        <li>
+          <a class="nav-link get-in-touch-btn" href="https://github.com/threkk">get in touch</a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <h1>CSS-only hamburger menu</h1>
+      <p>
+        Lorem ipsum ad cupidatat esse culpa irure adipisicing aliqua amet magna.
+        Sunt consectetur in laborum magna nisi id nostrud proident nostrud minim
+        irure. Reprehenderit deserunt nisi minim adipisicing non do elit.
+      </p>
+      <p>
+        Et commodo elit ipsum dolor sit. Do dolor nisi occaecat duis cillum sunt
+        esse commodo magna culpa aliqua. Sunt ad veniam anim et cillum nisi sit
+        ut mollit ad enim fugiat. Esse nisi in ex eu qui elit dolor irure do
+        elit incididunt. Anim minim sit amet qui labore laboris aliquip laborum
+        magna excepteur quis commodo enim Lorem. Nostrud elit deserunt duis ea
+        veniam anim aliqua.
+      </p>
+      <p>
+        Id incididunt ut ad do nostrud duis veniam do. Elit ut ea exercitation
+        do velit quis mollit in nostrud. Nulla irure incididunt sint labore
+        tempor nostrud consequat. Incididunt dolore eu excepteur amet. Aute
+        nulla velit anim culpa deserunt Lorem id. Commodo pariatur irure minim
+        excepteur ex mollit commodo et et non culpa. Aute reprehenderit labore
+        eu et voluptate exercitation dolore exercitation magna ea laboris amet.
+      </p>
+    </main>
+  </body>
+</html>
